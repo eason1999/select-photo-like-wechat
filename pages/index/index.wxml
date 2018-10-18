@@ -1,0 +1,14 @@
+<view class="image-container">
+  <view class="seat-panel">
+    <view wx:for="{{seatNumber}}" wx:key="*this" class="seats">
+      <view class="inner" id="inner{{index}}"></view>
+    </view>
+  </view>
+  <view class="image-panel">
+    <image wx:for="{{imageArray}}" wx:key="*this" mode="aspectFill" src="{{item}}" class="images" animation="{{animationArray[index]}}" bindtouchstart='start' bindtouchmove='move' bindtouchend='end' data-index="{{index}}"></image>
+    <view class="add-image" bindtap="addImage" animation="{{animationAdd}}" wx:if="{{imageArray.length<9}}">+</view>
+  </view>
+  <image id="movingCover" mode="aspectFill" src="{{selectedImg}}" class="cover-images" animation="{{animationMove}}"></image>
+</view>
+<button bindtap="getResult" class="result-button" type="primary">获取结果</button>
+<view id="del" class="delete-area" animation="{{animationDel}}">拖到这里删除</view>
